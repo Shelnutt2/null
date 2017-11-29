@@ -157,18 +157,35 @@ func TestIntPointer(t *testing.T) {
 
 func TestIntIsZero(t *testing.T) {
 	i := IntFrom(12345)
-	if i.IsZero() {
-		t.Errorf("IsZero() should be false")
-	}
-
-	null := NewInt(0, false)
-	if !null.IsZero() {
+	if !i.IsZero() {
 		t.Errorf("IsZero() should be true")
 	}
 
-	zero := NewInt(0, true)
-	if zero.IsZero() {
+	null := NewInt(0, false)
+	if null.IsZero() {
 		t.Errorf("IsZero() should be false")
+	}
+
+	zero := NewInt(0, true)
+	if !zero.IsZero() {
+		t.Errorf("IsZero() should be true")
+	}
+}
+
+func TestIntIsValid(t *testing.T) {
+	i := IntFrom(12345)
+	if i.IsValid() {
+		t.Errorf("IsValid() should be false")
+	}
+
+	null := NewInt(0, false)
+	if !null.IsValid() {
+		t.Errorf("IsValid() should be true")
+	}
+
+	zero := NewInt(0, true)
+	if zero.IsValid() {
+		t.Errorf("IsValid() should be false")
 	}
 }
 

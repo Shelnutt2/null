@@ -157,6 +157,23 @@ func TestBoolIsZero(t *testing.T) {
 	}
 }
 
+func TestBoolIsValid(t *testing.T) {
+	b := BoolFrom(true)
+	if !b.IsValid() {
+		t.Errorf("IsValid() should be true")
+	}
+
+	null := NewBool(false, false)
+	if null.IsValid() {
+		t.Errorf("IsValid() should be false")
+	}
+
+	Valid := NewBool(false, true)
+	if !Valid.IsValid() {
+		t.Errorf("IsValid() should be true")
+	}
+}
+
 func TestBoolSetValid(t *testing.T) {
 	change := NewBool(false, false)
 	assertNullBool(t, change, "SetValid()")

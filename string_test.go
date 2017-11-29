@@ -159,6 +159,28 @@ func TestStringIsZero(t *testing.T) {
 	}
 }
 
+func TestStringIsValid(t *testing.T) {
+	str := StringFrom("test")
+	if !str.IsValid() {
+		t.Errorf("IsValid() should be true")
+	}
+
+	blank := StringFrom("")
+	if !blank.IsValid() {
+		t.Errorf("IsValid() should be true")
+	}
+
+	empty := NewString("", true)
+	if !empty.IsValid() {
+		t.Errorf("IsValid() should be true")
+	}
+
+	null := StringFromPtr(nil)
+	if null.IsValid() {
+		t.Errorf("IsValid() should be false")
+	}
+}
+
 func TestStringSetValid(t *testing.T) {
 	change := NewString("", false)
 	assertNullStr(t, change, "SetValid()")

@@ -122,3 +122,8 @@ func (f Float) Ptr() *float64 {
 func (f Float) IsZero() bool {
 	return !f.Valid
 }
+
+// IsValid returns Valid
+func (f Float) IsValid() bool {
+	return f.Valid
+}

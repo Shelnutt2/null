@@ -133,3 +133,8 @@ func (t Time) Ptr() *time.Time {
 	}
 	return &t.Time
 }
+
+// IsValid returns Valid
+func (t Time) IsValid() bool {
+	return t.Valid
+}

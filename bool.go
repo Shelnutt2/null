@@ -127,3 +127,8 @@ func (b Bool) Ptr() *bool {
 func (b Bool) IsZero() bool {
 	return !b.Valid
 }
+
+// IsValid returns Valid
+func (b *Bool) IsValid() bool {
+	return b.Valid
+}

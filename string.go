@@ -108,3 +108,8 @@ func (s String) Ptr() *string {
 func (s String) IsZero() bool {
 	return !s.Valid
 }
+
+// IsValid returns Valid
+func (s String) IsValid() bool {
+	return s.Valid
+}

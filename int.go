@@ -123,3 +123,8 @@ func (i Int) Ptr() *int64 {
 func (i Int) IsZero() bool {
 	return !i.Valid
 }
+
+// IsValid returns Valid
+func (i Int) IsValid() bool {
+	return i.Valid
+}

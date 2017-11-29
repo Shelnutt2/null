@@ -146,6 +146,23 @@ func TestFloatIsZero(t *testing.T) {
 	}
 }
 
+func TestFloatisValid(t *testing.T) {
+	f := FloatFrom(1.2345)
+	if !f.IsValid() {
+		t.Errorf("IsValid() should be true")
+	}
+
+	null := NewFloat(0, false)
+	if null.IsValid() {
+		t.Errorf("IsValid() should be false")
+	}
+
+	zero := NewFloat(0, true)
+	if !zero.IsValid() {
+		t.Errorf("IsValid() should be true")
+	}
+}
+
 func TestFloatSetValid(t *testing.T) {
 	change := NewFloat(0, false)
 	assertNullFloat(t, change, "SetValid()")
